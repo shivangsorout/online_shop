@@ -14,7 +14,7 @@ class Product {
   });
 
   // Factory constructor to create a Product object from JSON
-  factory Product.fromJson(Map<String, dynamic> json) {
+  factory Product.fromJson(Map<dynamic, dynamic> json) {
     return Product(
       id: json[idKey],
       name: json[nameKey],
