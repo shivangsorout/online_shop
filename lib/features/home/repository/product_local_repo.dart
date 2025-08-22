@@ -7,18 +7,18 @@ class ProductLocalRepo {
 
   ProductLocalRepo(this._box);
 
-  /// 1. FetchDetails Function
-  // This function is returning a record of timestamp and list of products
-  (int?, List<Product>?) fetchDetails() {
+  /// 1. FetchDetails Function.
+  /// This function is returning a record of timestamp and list of products.
+  (int, List<Product>) fetchDetails() {
     int? lastUpdated = _box.get(lastTimeUpdatedKey);
     List<Product>? products = (_box.get(productsListKey) as List?)
         ?.map((json) => Product.fromJson(json))
         .toList();
-    return (lastUpdated, products);
+    return (lastUpdated ?? -1, products ?? []);
   }
 
-  /// 2. AddData Function
-  // This function is for adding the products and last updated time into hive
+  /// 2. AddData Function.
+  /// This function is for adding the products and last updated time into hive.
   Future<void> addData(List<Product> products) async {
     // Adding products data into the box
     await _box.put(
@@ -30,8 +30,8 @@ class ProductLocalRepo {
     await _box.put(lastTimeUpdatedKey, DateTime.now().millisecondsSinceEpoch);
   }
 
-  /// 3. DeleteData Function
-  // This function is for deleting all data
+  /// 3. DeleteData Function.
+  /// This function is for deleting all data.
   Future<void> deleteData() async {
     await _box.deleteAll([lastTimeUpdatedKey, productsListKey]);
   }
