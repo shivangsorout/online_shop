@@ -4,6 +4,7 @@ class Product {
   final String description;
   final double price;
   final double rating;
+  final String thumbnail;
 
   Product({
     required this.id,
@@ -11,6 +12,7 @@ class Product {
     required this.description,
     required this.price,
     required this.rating,
+    required this.thumbnail,
   });
 
   // Factory constructor to create a Product object from JSON
@@ -21,6 +23,7 @@ class Product {
       description: json[descriptionKey],
       price: json[priceKey],
       rating: json[ratingKey],
+      thumbnail: json[thumbnailKey],
     );
   }
 
@@ -32,6 +35,7 @@ class Product {
       descriptionKey: description,
       priceKey: price,
       ratingKey: rating,
+      thumbnailKey: thumbnail,
     };
   }
 }
@@ -42,3 +46,4 @@ const String nameKey = 'title';
 const String descriptionKey = 'description';
 const String priceKey = 'price';
 const String ratingKey = 'rating';
+const String thumbnailKey = 'thumbnail';

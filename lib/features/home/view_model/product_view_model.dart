@@ -30,6 +30,7 @@ class ProductViewModel extends ChangeNotifier {
     try {
       // First we will fetch the details from the local cache
       _isLoading = true;
+      notifyListeners();
 
       // Delay for the snackbar
       await Future.delayed(Duration(milliseconds: 300));
