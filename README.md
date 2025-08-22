@@ -87,7 +87,7 @@ I have used Flutter's Timer class periodic constructor, as I have to repeatedly 
 ## Reproducing different states and errors:
 - **States:**
   - **"Loading from cache":** To reproduce this state, either you can uninstall the application to delete the cache from your local device storage to see an empty cache, or you can directly **Hot Restart** the application in debug mode to trigger this state, as the data always gets loaded from the cache in every fresh start of the application.
-  - **"Fetching from Network" and "Up-to-date":** You can trigger these states either by hot reloading the application or by pressing the refresh floating action button at the bottom right of the home screen. These two states reproduce one after the other.
+  - **"Fetching from Network" and "Up-to-date":** You can trigger these states either by hot restarting the application or by pressing the refresh floating action button at the bottom right of the home screen. These two states reproduce one after the other.
 
 - **Errors:**
   - **NoInternetConnectionProductException:** To reproduce this error, simply turn off your device's internet and wifi connection, and now try to refresh the app using the floating action button on the bottom right.
@@ -103,3 +103,4 @@ I have used Flutter's Timer class periodic constructor, as I have to repeatedly 
     json['products'] as Set
     ```
     at line number 34 in file "online_shop\lib\features\home\repository\product_api_repo.dart". And now refresh the data again using the floating action button.
+
